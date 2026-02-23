@@ -343,17 +343,149 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-right: 0.08em solid #666;
 }
 
+/************ Shared card section width - About Me & Skills match ************/
+.card-section-container {
+  width: 100% !important;
+  max-width: 1320px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+/************ About Me Css ************/
+.about-me {
+  padding: 80px 0 60px 0;
+  position: relative;
+  background-color: #121212;
+}
+.about-me-card {
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(21, 21, 21, 0.98) 100%);
+  border-radius: 24px;
+  padding: 36px 50px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+.about-me-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  border-radius: 24px 24px 0 0;
+}
+.about-me-card-inner {
+  position: relative;
+  z-index: 1;
+}
+.about-me-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.about-me-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(170, 54, 124, 0.5) 0%, rgba(74, 47, 189, 0.5) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+.about-me-card h2 {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin-bottom: 8px;
+}
+.about-me-tagline {
+  color: #B8B8B8;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+.about-me-content {
+  margin-bottom: 20px;
+}
+.about-me-content p {
+  color: #B8B8B8;
+  font-size: 17px;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+.about-me-content p:last-child {
+  margin-bottom: 0;
+}
+.about-me-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.about-me-highlight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.about-me-highlight:hover {
+  background: rgba(170, 54, 124, 0.15);
+  border-color: rgba(170, 54, 124, 0.4);
+}
+.about-me-highlight svg {
+  color: #AA367C;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .about-me {
+    padding: 60px 0 80px 0;
+  }
+  .about-me-card {
+    padding: 28px 24px 24px;
+  }
+  .about-me-card h2 {
+    font-size: 28px;
+  }
+  .about-me-highlights {
+    flex-direction: column;
+  }
+}
+
+/************ Section Separator ************/
+.section-separator {
+  min-height: 120px;
+  background: #121212;
+}
+
 /************ Skills Css ************/
 .skill {
-  padding: 0 0 50px 0;
+  padding: 80px 0 50px 0;
   position: relative;
+  background-color: #0d0d0d;
 }
 .skill-bx {
+  width: 100%;
+  box-sizing: border-box;
   background: #151515;
   border-radius: 64px;
   text-align: center;
   padding: 60px 50px;
-  margin-top: -60px;
+  margin-top: 0;
   overflow: visible;
 }
 .skill h2 {

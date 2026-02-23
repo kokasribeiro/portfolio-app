@@ -2,6 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from "./components/NavBar";
 import { Banner } from "./components/Banner";
+import { AboutMe } from "./components/aboutme";
 import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
@@ -11,6 +12,8 @@ function App() {
     <div className="App">
       <NavBar />
       <Banner />
+      <AboutMe />
+      <div className="section-separator" aria-hidden="true" />
       <Skills />
       <Projects />
       <Contact />

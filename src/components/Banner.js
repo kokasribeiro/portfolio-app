@@ -49,7 +49,10 @@ export const Banner = () => {
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline">Welcome to my Portfolio</span>
                 <h1>Hi! I'm Nelson Ribeiro <span className="txt-rotate"><span className="wrap">{text}</span></span></h1>
-                  <p>I'm passionate about coding and technology. I thrive on learning something new every day—whether it's a new framework, a design pattern, or a better way to solve problems. I believe in building clean, user-friendly solutions that make a difference.</p>
+                  <p>I’m a Junior Full‑Stack Web Developer based in Geneva.
+I build modern, scalable web applications using React, TypeScript, Node.js, and PostgreSQL.
+I enjoy working on both frontend and backend, focusing on clean code, performance, and user‑friendly solutions. I’ve built projects ranging from frontend applications to REST APIs with validation and database integration.
+I’m currently seeking a junior or internship opportunity in Switzerland where I can continue learning, contribute to real projects, and grow as a developer.</p>
                   <a href="#connect" style={{ textDecoration: 'none' }}>
                   <button type="button">Let's Connect <ArrowRightCircle size={25} /></button>
                 </a>
