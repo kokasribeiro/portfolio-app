@@ -33,7 +33,6 @@ export const NavBar = () => {
     <Router>
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
-          <Navbar.Brand href="/">Nelson Ribeiro</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>
           </Navbar.Toggle>
@@ -52,7 +51,7 @@ export const NavBar = () => {
                 <span className="navbar-github-label">GitHub</span>
               </a>
               <HashLink to='#connect'>
-                <button className="vvd"><span>Let's Connect</span></button>
+                <button className="vvd"><span>Get in Touch</span></button>
               </HashLink>
             </span>
           </Navbar.Collapse>

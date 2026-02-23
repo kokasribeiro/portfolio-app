@@ -6,9 +6,6 @@ import projImg3 from "../assets/img/project-img3.png";
 import projImg4 from "../assets/img/project-img4.png";
 import projImg5 from "../assets/img/project-img5.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
-
 export const Projects = () => {
 
   const projects = [
@@ -55,12 +52,10 @@ export const Projects = () => {
       <Container>
         <Row>
           <Col xs={12}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
+            <div>
                 <h2>Projects</h2>
                 <p>Here are some of my recent projects. Each one represents a unique challenge and an opportunity to create something meaningful—from web applications to full-stack solutions. Take a look and see what I've been building.</p>
-                <Row id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
+                <Row>
                   {
                     projects.map((project, index) => {
                       return (
@@ -72,8 +67,7 @@ export const Projects = () => {
                     })
                   }
                 </Row>
-              </div>}
-            </TrackVisibility>
+              </div>
           </Col>
         </Row>
       </Container>

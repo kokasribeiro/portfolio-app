@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import contactImg from "../assets/img/contact-img.svg";
+import contactImg from "../assets/img/contact-img.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
@@ -58,19 +58,25 @@ export const Contact = () => {
   return (
     <section className="contact" id="connect">
       <Container>
-        <Row className="align-items-center">
-          <Col xs={12} md={6}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-                <img className={isVisible ? "animate__animated animate__zoomIn" : ""} src={contactImg} alt="Contact Us"/>
-              }
-            </TrackVisibility>
+        <h2>Get In Touch</h2>
+        <Row className="align-items-stretch contact-row">
+          <Col xs={12} md={6} className="contact-col">
+            <div className="contact-col-inner">
+              <TrackVisibility>
+                {({ isVisible }) =>
+                  <div className={`contact-image-wrapper ${isVisible ? "animate__animated animate__zoomIn" : ""}`}>
+                    <img src={contactImg} alt="Contact Us"/>
+                  </div>
+                }
+              </TrackVisibility>
+            </div>
           </Col>
-          <Col xs={12} md={6}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-                <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <h2>Get In Touch</h2>
+          <Col xs={12} md={6} className="contact-col">
+            <div className="contact-col-inner">
+              <TrackVisibility>
+                {({ isVisible }) =>
+                  <div className={`contact-form-wrapper ${isVisible ? "animate__animated animate__fadeIn" : ""}`}>
+                <div className="contact-form-glass">
                 <form onSubmit={handleSubmit}>
                   <Row>
                     <Col xs={12} sm={6} className="px-1">
@@ -97,8 +103,10 @@ export const Contact = () => {
                     }
                   </Row>
                 </form>
-              </div>}
-            </TrackVisibility>
+                </div>
+                </div>}
+              </TrackVisibility>
+            </div>
           </Col>
         </Row>
       </Container>
