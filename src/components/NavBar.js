@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import { Github } from "react-bootstrap-icons";
 import { HashLink } from 'react-router-hash-link';
 import {
   BrowserRouter as Router
@@ -43,6 +44,12 @@ export const NavBar = () => {
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
             </Nav>
             <span className="navbar-text">
+              <a href="https://github.com/kokasribeiro" target="_blank" rel="noopener noreferrer" className="navbar-github-link" aria-label="GitHub">
+                <span className="navbar-github-icon">
+                  <Github size={24} />
+                </span>
+                <span className="navbar-github-label">GitHub</span>
+              </a>
               <HashLink to='#connect'>
                 <button className="vvd"><span>Let's Connect</span></button>
               </HashLink>
