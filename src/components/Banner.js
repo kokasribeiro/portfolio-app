@@ -5,39 +5,38 @@ import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
+const TO_ROTATE = ["Web Developer"];
+
 export const Banner = () => {
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [delta, setDelta] = useState(300 - Math.random() * 100);
-  const toRotate = ["Web Developer"];
   const period = 2000;
 
   useEffect(() => {
-    let ticker = setInterval(() => {
-      tick();
-    }, delta);
-    return () => { clearInterval(ticker) };
-  }, [text, delta]);
+    const tick = () => {
+      let fullText = TO_ROTATE[0];
+      let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
+      setText(updatedText);
 
-  const tick = () => {
-    let fullText = toRotate[0];
-    let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
-    setText(updatedText);
+      if (isDeleting) {
+        setDelta(prevDelta => prevDelta / 2);
+      }
 
-    if (isDeleting) {
-      setDelta(prevDelta => prevDelta / 2);
-    }
+      if (!isDeleting && updatedText === fullText) {
+        setIsDeleting(true);
+        setDelta(period);
+      } else if (isDeleting && updatedText === '') {
+        setIsDeleting(false);
+        setDelta(500);
+      } else {
+        setDelta(500);
+      }
+    };
 
-    if (!isDeleting && updatedText === fullText) {
-      setIsDeleting(true);
-      setDelta(period);
-    } else if (isDeleting && updatedText === '') {
-      setIsDeleting(false);
-      setDelta(500);
-    } else {
-      setDelta(500);
-    }
-  };
+    let ticker = setInterval(tick, delta);
+    return () => clearInterval(ticker);
+  }, [text, delta, isDeleting, period]);
 
   return (
     <section className="banner" id="home">

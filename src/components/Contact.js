@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 import 'animate.css';
@@ -15,6 +15,11 @@ export const Contact = () => {
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState('Send');
   const [status, setStatus] = useState({});
+
+  // Clear status on mount (e.g. when page is refreshed or user navigates back)
+  useEffect(() => {
+    setStatus({});
+  }, []);
 
   const onFormUpdate = (category, value) => {
       setFormDetails({
@@ -39,6 +44,8 @@ export const Contact = () => {
       if (result.code === 200) {
         setFormDetails(formInitialDetails);
         setStatus({ success: true, message: 'Message sent successfully!' });
+        // Auto-hide success message after 5 seconds
+        setTimeout(() => setStatus({}), 5000);
       } else {
         setStatus({ success: false, message: result.error || 'Something went wrong, please try again later.' });
       }
