@@ -32,8 +32,8 @@ export const Contact = () => {
     e.preventDefault();
     setButtonText("Sending...");
     try {
-      const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5001";
-      const response = await fetch(`${apiUrl}/contact`, {
+      const baseUrl = (process.env.REACT_APP_API_URL || "http://localhost:5001").replace(/\/$/, "");
+      const response = await fetch(`${baseUrl}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json;charset=utf-8",
