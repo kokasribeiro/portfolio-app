@@ -5,6 +5,7 @@ import projImg2 from "../assets/img/project-img2.png";
 import projImg3 from "../assets/img/project-img3.png";
 import projImg4 from "../assets/img/project-img4.png";
 import projImg5 from "../assets/img/project-img5.png";
+import projImg6 from "../assets/img/project-img6.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 export const Projects = () => {
 
@@ -41,8 +42,9 @@ export const Projects = () => {
     },
     {
       title: "investment memo analyzer",
-      description: "Design & Development",
-      imgUrl: projImg3,
+      description: "AI-powered tool to analyze investment memos. Extracts executive summary, thesis, key risks, and points to validate. Dark theme dashboard with score visualization.",
+      hoverText: "AI-powered tool for investment analysts. Paste a memo and get structured insights: executive summary, thesis, key risks, and points to validate. I integrated Ollama (local LLM) for AI-driven analysis. Built with React 19, Vite 7, Tailwind CSS, and Framer Motion.",
+      imgUrl: projImg6,
       url: "https://github.com/kokasribeiro/investment-memo-analyzer",
     },
   ];

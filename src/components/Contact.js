@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.png";
 import 'animate.css';
@@ -15,11 +15,19 @@ export const Contact = () => {
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState('Send');
   const [status, setStatus] = useState({});
+  const statusRef = useRef(null);
 
   // Clear status on mount (e.g. when page is refreshed or user navigates back)
   useEffect(() => {
     setStatus({});
   }, []);
+
+  // Scroll status message into view on mobile when it appears
+  useEffect(() => {
+    if (status.message && statusRef.current) {
+      statusRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }, [status.message]);
 
   const onFormUpdate = (category, value) => {
       setFormDetails({
@@ -31,6 +39,7 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
+    setStatus({});
     try {
       const baseUrl = (process.env.REACT_APP_API_URL || "http://localhost:5001").replace(/\/$/, "");
       const response = await fetch(`${baseUrl}/contact`, {
@@ -39,18 +48,27 @@ export const Contact = () => {
           "Content-Type": "application/json;charset=utf-8",
         },
         body: JSON.stringify(formDetails),
+        mode: 'cors',
       });
-      const result = await response.json();
+      const text = await response.text();
+      let result;
+      try {
+        result = text ? JSON.parse(text) : {};
+      } catch {
+        throw new Error('Invalid server response');
+      }
       if (result.code === 200) {
         setFormDetails(formInitialDetails);
         setStatus({ success: true, message: 'Message sent successfully!' });
-        // Auto-hide success message after 5 seconds
         setTimeout(() => setStatus({}), 5000);
       } else {
-        setStatus({ success: false, message: result.error || 'Something went wrong, please try again later.' });
+        setStatus({ success: false, message: result.error || 'Something went wrong. Please try again later.' });
       }
     } catch (err) {
-      setStatus({ success: false, message: 'Failed to send. Make sure the server is running.' });
+      const message = err.message === 'Failed to fetch'
+        ? 'Network error. Check your connection and try again.'
+        : (err.message || 'Failed to send. Please try again later.');
+      setStatus({ success: false, message });
     }
     setButtonText("Send");
   };
@@ -97,8 +115,8 @@ export const Contact = () => {
                     </Col>
                     {
                       status.message &&
-                      <Col>
-                        <p className={status.success === false ? "danger" : "success"}>{status.message}</p>
+                      <Col xs={12} className="px-1">
+                        <p ref={statusRef} className={`contact-status ${status.success === false ? "danger" : "success"}`}>{status.message}</p>
                       </Col>
                     }
                   </Row>

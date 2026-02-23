@@ -1,13 +1,14 @@
 import { Col } from "react-bootstrap";
 
-export const ProjectCard = ({ title, description, imgUrl, url }) => {
+export const ProjectCard = ({ title, description, imgUrl, url, hoverText }) => {
+  const displayText = hoverText ?? description;
   return (
     <Col xs={12} sm={6} md={4}>
       <div className="proj-imgbx">
         <img src={imgUrl} alt={title} />
         <div className="proj-txtx">
           <h4>{title}</h4>
-          <span>{description}</span>
+          <span className={hoverText ? "proj-txtx-detail" : ""}>{displayText}</span>
           {url && (
             <a href={url} target="_blank" rel="noopener noreferrer" className="proj-link-btn">
               View on GitHub
