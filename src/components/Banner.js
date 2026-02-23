@@ -49,7 +49,9 @@ export const Banner = () => {
                 <span className="tagline">Welcome to my Portfolio</span>
                 <h1>Hi! I'm Nelson Ribeiro <span className="txt-rotate"><span className="wrap">{text}</span></span></h1>
                   <p>I'm passionate about coding and technology. I thrive on learning something new every day—whether it's a new framework, a design pattern, or a better way to solve problems. I believe in building clean, user-friendly solutions that make a difference.</p>
-                  <button onClick={() => console.log('connect')}>Let's Connect <ArrowRightCircle size={25} /></button>
+                  <a href="#connect" style={{ textDecoration: 'none' }}>
+                  <button type="button">Let's Connect <ArrowRightCircle size={25} /></button>
+                </a>
               </div>}
             </TrackVisibility>
           </Col>
