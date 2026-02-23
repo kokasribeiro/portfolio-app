@@ -27,10 +27,10 @@ export const AboutMe = () => {
                     </div>
                     <div className="about-me-content">
                       <p>
-                        I&apos;m a Junior Full-Stack Web Developer based in Geneva.
+                        {`I'm a Junior Full-Stack Web Developer based in Geneva.
                         I build modern, scalable web applications using React, TypeScript, Node.js, and PostgreSQL.
-                        I enjoy working on both frontend and backend, focusing on clean code, performance, and user-friendly solutions. I&apos;ve built projects ranging from frontend applications to REST APIs with validation and database integration.
-                        I&apos;m currently seeking a junior or internship opportunity in Switzerland where I can continue learning, contribute to real projects, and grow as a developer.
+                        I enjoy working on both frontend and backend, focusing on clean code, performance, and user-friendly solutions. I've built projects ranging from frontend applications to REST APIs with validation and database integration.
+                        I'm currently seeking a junior or internship opportunity in Switzerland where I can continue learning, contribute to real projects, and grow as a developer.`}
                       </p>
                     </div>
                     <div className="about-me-highlights">
