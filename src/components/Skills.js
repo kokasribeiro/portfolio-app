@@ -1,5 +1,6 @@
-import { useRef, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'react-bootstrap-icons';
+import { useRef, useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
 import colorSharp from "../assets/img/color-sharp.png";
 
 const frontendSkills = [
@@ -110,9 +111,9 @@ const SkillCarousel = ({ skills }) => {
 export const Skills = () => {
   return (
     <section className="skill" id="skills">
-      <div className="container card-section-container">
-        <div className="row">
-          <div className="col-12">
+      <Container className="card-section-container">
+        <Row>
+          <Col xs={12}>
             <div className="skill-bx wow zoomIn">
               <h2>Skills</h2>
               <p>Technologies and tools I work with</p>
@@ -123,9 +124,9 @@ export const Skills = () => {
               <h3 className="skill-subtitle">Back-end</h3>
               <SkillCarousel skills={backendSkills} />
             </div>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
       <img className="background-image-left" src={colorSharp} alt="" />
     </section>
   );

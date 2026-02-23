@@ -58,22 +58,15 @@ export const Projects = () => {
                 <h2>Projects</h2>
                 <p>Here are some of my recent projects. Each one represents a unique challenge and an opportunity to create something meaningful—from web applications to full-stack solutions. Take a look and see what I've been building.</p>
                 <Row>
-                  {
-                    projects.map((project, index) => {
-                      return (
-                        <ProjectCard
-                          key={index}
-                          {...project}
-                        />
-                      )
-                    })
-                  }
+                  {projects.map((project, index) => (
+                    <ProjectCard key={index} {...project} />
+                  ))}
                 </Row>
               </div>
           </Col>
         </Row>
       </Container>
-      <img className="background-image-right" src={colorSharp2} alt=""></img>
+      <img className="background-image-right" src={colorSharp2} alt="" />
     </section>
   )
 }

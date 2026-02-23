@@ -30,11 +30,8 @@ export const Contact = () => {
   }, [status.message]);
 
   const onFormUpdate = (category, value) => {
-      setFormDetails({
-        ...formDetails,
-        [category]: value
-      })
-  }
+    setFormDetails((prev) => ({ ...prev, [category]: value }));
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -1,11 +1,12 @@
+import { Container, Row, Col } from "react-bootstrap";
 import { Person, CodeSlash, GeoAlt, Briefcase } from "react-bootstrap-icons";
 
 export const AboutMe = () => {
   return (
     <section className="about-me" id="about">
-      <div className="container card-section-container">
-        <div className="row">
-          <div className="col-12">
+      <Container className="card-section-container">
+        <Row>
+          <Col xs={12}>
             <div className="about-me-card">
               <div className="about-me-card-inner">
                 <div className="about-me-header">
@@ -40,9 +41,9 @@ export const AboutMe = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </Col>
+        </Row>
+      </Container>
     </section>
-  )
-}
+  );
+};
