@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from "./components/NavBar";
@@ -8,9 +9,18 @@ import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
 
 function App() {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
   return (
     <div className="App">
-      <NavBar />
+      <NavBar theme={theme} setTheme={setTheme} />
       <Banner />
       <AboutMe />
       <div className="section-separator" aria-hidden="true" />

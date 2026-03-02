@@ -1,7 +1,9 @@
 import { useRef, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { ChevronLeft, ChevronRight } from "react-bootstrap-icons";
+import TrackVisibility from 'react-on-screen';
 import colorSharp from "../assets/img/color-sharp.png";
+import 'animate.css';
 
 const frontendSkills = [
   { name: "HTML5", icon: "https://cdn.simpleicons.org/html5/E34F26" },
@@ -114,7 +116,9 @@ export const Skills = () => {
       <Container className="card-section-container">
         <Row>
           <Col xs={12}>
-            <div className="skill-bx wow zoomIn">
+            <TrackVisibility partialVisibility>
+              {({ isVisible }) => (
+            <div className={`skill-bx ${isVisible ? 'animate__animated animate__fadeInUp' : ''}`}>
               <h2>Skills</h2>
               <p>Technologies and tools I work with</p>
 
@@ -124,6 +128,8 @@ export const Skills = () => {
               <h3 className="skill-subtitle">Back-end</h3>
               <SkillCarousel skills={backendSkills} />
             </div>
+              )}
+            </TrackVisibility>
           </Col>
         </Row>
       </Container>

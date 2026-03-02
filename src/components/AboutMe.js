@@ -1,5 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { Person, CodeSlash, GeoAlt, Briefcase } from "react-bootstrap-icons";
+import TrackVisibility from 'react-on-screen';
+import 'animate.css';
 
 export const AboutMe = () => {
   return (
@@ -7,7 +9,9 @@ export const AboutMe = () => {
       <Container className="card-section-container">
         <Row>
           <Col xs={12}>
-            <div className="about-me-card">
+            <TrackVisibility partialVisibility>
+              {({ isVisible }) => (
+            <div className={`about-me-card ${isVisible ? 'animate__animated animate__fadeInUp' : ''}`}>
               <div className="about-me-card-inner">
                 <div className="about-me-header">
                   <div className="about-me-icon">
@@ -41,6 +45,8 @@ export const AboutMe = () => {
                 </div>
               </div>
             </div>
+              )}
+            </TrackVisibility>
           </Col>
         </Row>
       </Container>
