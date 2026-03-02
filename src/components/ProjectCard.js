@@ -14,11 +14,9 @@ export const ProjectCard = ({ title, description, imgUrl, url, liveUrl, hoverTex
           <h4>{title}</h4>
           <span className={hoverText ? "proj-txtx-detail" : ""}>{displayText}</span>
           <div className="proj-link-btns">
-            {liveUrl && (
-              <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="proj-link-btn proj-link-btn-demo">
-                Live Demo
-              </a>
-            )}
+            <a href={liveUrl || url} target="_blank" rel="noopener noreferrer" className="proj-link-btn proj-link-btn-demo">
+              Live Demo
+            </a>
             {url && (
               <a href={url} target="_blank" rel="noopener noreferrer" className="proj-link-btn">
                 View on GitHub
