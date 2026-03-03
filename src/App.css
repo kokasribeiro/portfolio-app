@@ -810,6 +810,23 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   top: 50%;
   opacity: 1;
 }
+/* Touch devices: overlay hidden by default, show only when user taps (proj-card-overlay-open) */
+@media (hover: none) {
+  .proj-imgbx::before {
+    height: 0;
+  }
+  .proj-imgbx .proj-txtx {
+    top: 65%;
+    opacity: 0;
+  }
+  .proj-imgbx.proj-card-overlay-open::before {
+    height: 100%;
+  }
+  .proj-imgbx.proj-card-overlay-open .proj-txtx {
+    top: 50%;
+    opacity: 1;
+  }
+}
 .proj-txtx h4 {
   font-size: 18px;
   font-weight: 700;
