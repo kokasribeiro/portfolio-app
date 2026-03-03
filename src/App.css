@@ -810,16 +810,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   top: 50%;
   opacity: 1;
 }
-/* Touch devices: always show overlay (no hover) so Live Demo / GitHub buttons are visible */
-@media (hover: none) {
-  .proj-imgbx::before {
-    height: 100%;
-  }
-  .proj-imgbx .proj-txtx {
-    top: 50%;
-    opacity: 1;
-  }
-}
 .proj-txtx h4 {
   font-size: 18px;
   font-weight: 700;
