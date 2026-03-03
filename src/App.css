@@ -810,6 +810,16 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   top: 50%;
   opacity: 1;
 }
+/* Touch devices: always show overlay (no hover) so Live Demo / GitHub buttons are visible */
+@media (hover: none) {
+  .proj-imgbx::before {
+    height: 100%;
+  }
+  .proj-imgbx .proj-txtx {
+    top: 50%;
+    opacity: 1;
+  }
+}
 .proj-txtx h4 {
   font-size: 18px;
   font-weight: 700;
@@ -851,17 +861,24 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-radius: 50px;
   transition: 0.3s ease;
 }
-.proj-link-btn:hover {
+.proj-link-btn:hover,
+.proj-link-btn:active,
+.proj-link-btn:focus-visible {
   background: #fff;
   transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 .proj-link-btn-demo {
   background: var(--gradient-brand);
   color: #fff;
 }
-.proj-link-btn-demo:hover {
+.proj-link-btn-demo:hover,
+.proj-link-btn-demo:active,
+.proj-link-btn-demo:focus-visible {
   background: linear-gradient(90.21deg, #b83d8a -5.91%, #5a3ad4 111.58%);
   color: #fff;
+  transform: scale(1.05);
+  box-shadow: 0 4px 16px rgba(90, 58, 212, 0.4);
 }
 .background-image-right {
   top: 20%;
