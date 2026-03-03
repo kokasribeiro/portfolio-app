@@ -1,7 +1,10 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import { CheckCircleFill, XCircleFill } from "react-bootstrap-icons";
 import contactImg from "../assets/img/contact-img.png";
 import { AnimatedOnScroll } from './AnimatedOnScroll';
+
+const TOAST_DURATION = 3500;
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -10,23 +13,16 @@ export const Contact = () => {
     email: '',
     phone: '',
     message: ''
-  }
+  };
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState('Send');
-  const [status, setStatus] = useState({});
-  const statusRef = useRef(null);
+  const [toast, setToast] = useState(null);
 
-  // Clear status on mount (e.g. when page is refreshed or user navigates back)
   useEffect(() => {
-    setStatus({});
-  }, []);
-
-  // Scroll status message into view on mobile when it appears
-  useEffect(() => {
-    if (status.message && statusRef.current) {
-      statusRef.current.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-  }, [status.message]);
+    if (!toast) return;
+    const timer = setTimeout(() => setToast(null), TOAST_DURATION);
+    return () => clearTimeout(timer);
+  }, [toast]);
 
   const onFormUpdate = (category, value) => {
     setFormDetails((prev) => ({ ...prev, [category]: value }));
@@ -35,7 +31,7 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
-    setStatus({});
+    setToast(null);
     try {
       const baseUrl = (process.env.REACT_APP_API_URL || "http://localhost:5001").replace(/\/$/, "");
       const response = await fetch(`${baseUrl}/contact`, {
@@ -55,22 +51,31 @@ export const Contact = () => {
       }
       if (result.code === 200) {
         setFormDetails(formInitialDetails);
-        setStatus({ success: true, message: 'Message sent successfully!' });
-        setTimeout(() => setStatus({}), 5000);
+        setToast({ type: 'success', message: 'Message sent successfully!' });
       } else {
-        setStatus({ success: false, message: result.error || 'Something went wrong. Please try again later.' });
+        setToast({ type: 'error', message: result.error || 'Something went wrong. Please try again later.' });
       }
     } catch (err) {
       const message = err.message === 'Failed to fetch'
         ? 'Network error. Check your connection and try again.'
         : (err.message || 'Failed to send. Please try again later.');
-      setStatus({ success: false, message });
+      setToast({ type: 'error', message });
     }
     setButtonText("Send");
   };
 
   return (
     <section className="contact" id="connect">
+      {toast && (
+        <div className={`contact-toast contact-toast-${toast.type}`} role="alert" aria-live="polite">
+          {toast.type === 'success' ? (
+            <CheckCircleFill className="contact-toast-icon" />
+          ) : (
+            <XCircleFill className="contact-toast-icon" />
+          )}
+          <span>{toast.message}</span>
+        </div>
+      )}
       <Container className="card-section-container">
         <h2 className="section-title">Get In Touch</h2>
         <Row className="align-items-stretch contact-row">
@@ -103,12 +108,6 @@ export const Contact = () => {
                       <textarea rows="6" value={formDetails.message} placeholder="Message" onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
                       <button type="submit"><span>{buttonText}</span></button>
                     </Col>
-                    {
-                      status.message &&
-                      <Col xs={12} className="px-1">
-                        <p ref={statusRef} className={`contact-status ${status.success === false ? "danger" : "success"}`}>{status.message}</p>
-                      </Col>
-                    }
                   </Row>
                 </form>
                 </div>
