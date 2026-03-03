@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.png";
-import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import { AnimatedOnScroll } from './AnimatedOnScroll';
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -72,25 +71,19 @@ export const Contact = () => {
 
   return (
     <section className="contact" id="connect">
-      <Container>
-        <h2>Get In Touch</h2>
+      <Container className="card-section-container">
+        <h2 className="section-title">Get In Touch</h2>
         <Row className="align-items-stretch contact-row">
           <Col xs={12} md={6} className="contact-col">
             <div className="contact-col-inner">
-              <TrackVisibility>
-                {({ isVisible }) =>
-                  <div className={`contact-image-wrapper ${isVisible ? "animate__animated animate__zoomIn" : ""}`}>
-                    <img src={contactImg} alt="Contact Us"/>
-                  </div>
-                }
-              </TrackVisibility>
+              <AnimatedOnScroll animation="animate__zoomIn" className="contact-image-wrapper">
+                <img src={contactImg} alt="Contact Us"/>
+              </AnimatedOnScroll>
             </div>
           </Col>
           <Col xs={12} md={6} className="contact-col">
             <div className="contact-col-inner">
-              <TrackVisibility>
-                {({ isVisible }) =>
-                  <div className={`contact-form-wrapper ${isVisible ? "animate__animated animate__fadeIn" : ""}`}>
+              <AnimatedOnScroll animation="animate__fadeIn" className="contact-form-wrapper">
                 <div className="contact-form-glass">
                 <form onSubmit={handleSubmit}>
                   <Row>
@@ -119,8 +112,7 @@ export const Contact = () => {
                   </Row>
                 </form>
                 </div>
-                </div>}
-              </TrackVisibility>
+              </AnimatedOnScroll>
             </div>
           </Col>
         </Row>

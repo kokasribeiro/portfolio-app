@@ -1,22 +1,21 @@
 import { Col } from "react-bootstrap";
-import TrackVisibility from 'react-on-screen';
-import 'animate.css';
+import { AnimatedOnScroll } from './AnimatedOnScroll';
 
 export const ProjectCard = ({ title, description, imgUrl, url, liveUrl, hoverText }) => {
   const displayText = hoverText ?? description;
   return (
     <Col xs={12} sm={6} md={4} lg={3}>
-      <TrackVisibility partialVisibility>
-        {({ isVisible }) => (
-      <div className={`proj-imgbx ${isVisible ? 'animate__animated animate__fadeInUp' : ''}`}>
+      <AnimatedOnScroll animation="animate__fadeInUp" partialVisibility className="proj-imgbx">
         <img src={imgUrl} alt={title} />
         <div className="proj-txtx">
           <h4>{title}</h4>
           <span className={hoverText ? "proj-txtx-detail" : ""}>{displayText}</span>
           <div className="proj-link-btns">
-            <a href={liveUrl || url} target="_blank" rel="noopener noreferrer" className="proj-link-btn proj-link-btn-demo">
-              Live Demo
-            </a>
+            {liveUrl && (
+              <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="proj-link-btn proj-link-btn-demo">
+                Live Demo
+              </a>
+            )}
             {url && (
               <a href={url} target="_blank" rel="noopener noreferrer" className="proj-link-btn">
                 View on GitHub
@@ -24,9 +23,7 @@ export const ProjectCard = ({ title, description, imgUrl, url, liveUrl, hoverTex
             )}
           </div>
         </div>
-      </div>
-        )}
-      </TrackVisibility>
+      </AnimatedOnScroll>
     </Col>
   )
 }

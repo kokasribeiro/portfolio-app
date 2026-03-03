@@ -13,7 +13,7 @@ export const AboutMe = () => {
                   <div className="about-me-icon">
                     <Person size={32} />
                   </div>
-                  <h2>About Me</h2>
+                  <h2 className="section-title">About Me</h2>
                 </div>
                 <div className="about-me-content">
                   <p>

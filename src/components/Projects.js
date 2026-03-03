@@ -65,15 +65,15 @@ export const Projects = () => {
 
   return (
     <section className="project" id="projects">
-      <Container>
+      <Container className="card-section-container">
         <Row>
           <Col xs={12}>
             <div className="project-card">
-                <h2>Projects</h2>
+                <h2 className="section-title">Projects</h2>
                 <p>Here are some of my recent projects. Each one represents a unique challenge and an opportunity to create something meaningful—from web applications to full-stack solutions. Take a look and see what I've been building.</p>
                 <Row>
-                  {projects.map((project, index) => (
-                    <ProjectCard key={index} {...project} />
+                  {projects.map((project) => (
+                    <ProjectCard key={project.title} {...project} />
                   ))}
                 </Row>
               </div>
