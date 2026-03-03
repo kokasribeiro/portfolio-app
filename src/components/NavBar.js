@@ -2,9 +2,14 @@ import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { Github, MoonFill, SunFill } from "react-bootstrap-icons";
 import { HashLink } from 'react-router-hash-link';
-import {
-  BrowserRouter as Router
-} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+
+const NAV_LINKS = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'projects', label: 'Projects' },
+];
 
 export const NavBar = ({ theme, setTheme }) => {
   const [activeLink, setActiveLink] = useState('home');
@@ -18,6 +23,10 @@ export const NavBar = ({ theme, setTheme }) => {
   }, []);
 
   const closeMenu = () => setExpanded(false);
+  const handleNavClick = (id) => () => {
+    setActiveLink(id);
+    closeMenu();
+  };
 
   return (
     <Router>
@@ -28,10 +37,16 @@ export const NavBar = ({ theme, setTheme }) => {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-              <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => { setActiveLink('home'); closeMenu(); }}>Home</Nav.Link>
-              <Nav.Link href="#about" className={activeLink === 'about' ? 'active navbar-link' : 'navbar-link'} onClick={() => { setActiveLink('about'); closeMenu(); }}>About</Nav.Link>
-              <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => { setActiveLink('skills'); closeMenu(); }}>Skills</Nav.Link>
-              <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => { setActiveLink('projects'); closeMenu(); }}>Projects</Nav.Link>
+              {NAV_LINKS.map(({ id, label }) => (
+                <Nav.Link
+                  key={id}
+                  href={`#${id}`}
+                  className={activeLink === id ? 'active navbar-link' : 'navbar-link'}
+                  onClick={handleNavClick(id)}
+                >
+                  {label}
+                </Nav.Link>
+              ))}
             </Nav>
             <span className="navbar-text">
               <span className="navbar-icons">

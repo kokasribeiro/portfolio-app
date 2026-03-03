@@ -5,7 +5,7 @@ import 'animate.css';
 export const ProjectCard = ({ title, description, imgUrl, url, liveUrl, hoverText }) => {
   const displayText = hoverText ?? description;
   return (
-    <Col xs={12} sm={6} md={4}>
+    <Col xs={12} sm={6} md={4} lg={3}>
       <TrackVisibility partialVisibility>
         {({ isVisible }) => (
       <div className={`proj-imgbx ${isVisible ? 'animate__animated animate__fadeInUp' : ''}`}>

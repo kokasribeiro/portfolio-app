@@ -6,24 +6,11 @@ import projImg3 from "../assets/img/project-img3.png";
 import projImg4 from "../assets/img/project-img4.png";
 import projImg5 from "../assets/img/project-img5.png";
 import projImg6 from "../assets/img/project-img6.png";
+import projImg8 from "../assets/img/project-img8.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 export const Projects = () => {
 
   const projects = [
-    {
-      title: "flipping card",
-      description: "Scroll-driven animation with GSAP ScrollTrigger. Three cards flip to reveal content as you scroll—'One vision, three dimensions'.",
-      imgUrl: projImg1,
-      url: "https://github.com/kokasribeiro/split-card-scroll-animation",
-      liveUrl: "", // Add your Vercel/Netlify URL when deployed
-    },
-    {
-      title: "calculater react",
-      description: "Clean calculator built with React 19 and Vite 7. Supports basic arithmetic, decimal numbers, real-time result preview, and input validation. Fully responsive with a modern UI.",
-      imgUrl: projImg2,
-      url: "https://github.com/kokasribeiro/react-calculator",
-      liveUrl: "", // Add your Vercel/Netlify URL when deployed
-    },
     {
       title: "gym-spot",
       description: "Full-stack gym app with user auth, check-ins, and nearby gym search. Built with Fastify, Prisma, PostgreSQL, JWT, and TypeScript. Dashboard tracks check-ins, saved gyms, and day streaks.",
@@ -32,11 +19,11 @@ export const Projects = () => {
       liveUrl: "", // Add your deployment URL when live
     },
     {
-      title: "weather-app",
-      description: "Weather app built with React 19, Vite, and OpenWeatherMap API. Dynamic background changes with conditions—rain, snow, or sunny. Uses Axios and Tailwind CSS.",
-      imgUrl: projImg4,
-      url: "https://github.com/kokasribeiro/react-weather-app",
-      liveUrl: "", // Add your Vercel/Netlify URL when deployed
+      title: "dashboard-app",
+      description: "Financial dashboard with KPIs, revenue charts, recent transactions, and geography-based traffic. Built with React and Create React App.",
+      imgUrl: projImg8,
+      url: "https://github.com/kokasribeiro/dashboard-app",
+      liveUrl: "https://dashboard-app-zeta-eight.vercel.app/",
     },
     {
       title: "transactions-api",
@@ -53,6 +40,27 @@ export const Projects = () => {
       url: "https://github.com/kokasribeiro/investment-memo-analyzer",
       liveUrl: "", // Add your deployment URL when live
     },
+    {
+      title: "weather-app",
+      description: "Weather app built with React 19, Vite, and OpenWeatherMap API. Dynamic background changes with conditions—rain, snow, or sunny. Uses Axios and Tailwind CSS.",
+      imgUrl: projImg4,
+      url: "https://github.com/kokasribeiro/react-weather-app",
+      liveUrl: "", // Add your Vercel/Netlify URL when deployed
+    },
+    {
+      title: "flipping card",
+      description: "Scroll-driven animation with GSAP ScrollTrigger. Three cards flip to reveal content as you scroll—'One vision, three dimensions'.",
+      imgUrl: projImg1,
+      url: "https://github.com/kokasribeiro/split-card-scroll-animation",
+      liveUrl: "", // Add your Vercel/Netlify URL when deployed
+    },
+    {
+      title: "calculator react",
+      description: "Clean calculator built with React 19 and Vite 7. Supports basic arithmetic, decimal numbers, real-time result preview, and input validation. Fully responsive with a modern UI.",
+      imgUrl: projImg2,
+      url: "https://github.com/kokasribeiro/react-calculator",
+      liveUrl: "", // Add your Vercel/Netlify URL when deployed
+    },
   ];
 
   return (
@@ -60,7 +68,7 @@ export const Projects = () => {
       <Container>
         <Row>
           <Col xs={12}>
-            <div>
+            <div className="project-card">
                 <h2>Projects</h2>
                 <p>Here are some of my recent projects. Each one represents a unique challenge and an opportunity to create something meaningful—from web applications to full-stack solutions. Take a look and see what I've been building.</p>
                 <Row>
