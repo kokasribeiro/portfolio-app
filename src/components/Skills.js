@@ -12,6 +12,7 @@ const frontendSkills = [
   { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript/F7DF1E" },
   { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript/3178C6" },
   { name: "React", icon: "https://cdn.simpleicons.org/react/61DAFB" },
+  { name: "Vue", icon: "https://cdn.simpleicons.org/vuedotjs/4FC08D" },
   { name: "Angular", icon: "https://cdn.simpleicons.org/angular/DD0031" },
   { name: "Vite", icon: "https://cdn.simpleicons.org/vite/646CFF" },
   { name: "Git", icon: "https://cdn.simpleicons.org/git/F05032" },
