@@ -25,7 +25,7 @@ export const ProjectCard = ({ title, description, imgUrl, url, liveUrl, hoverTex
 
   const cardClass = `proj-imgbx${overlayOpen ? " proj-card-overlay-open" : ""}`;
   return (
-    <Col xs={12} sm={6} md={4} lg={3}>
+    <Col xs={12} sm={6} md={3} lg={3}>
       <div ref={cardRef} onClick={handleCardTap} role="button" tabIndex={0} onKeyDown={(e) => e.key === "Enter" && handleCardTap(e)} aria-label={`${title} - tap to ${overlayOpen ? "hide" : "show"} details`} style={{ touchAction: "manipulation" }}>
         <AnimatedOnScroll animation="animate__fadeInUp" partialVisibility className={cardClass}>
           <img src={imgUrl} alt={title} />

@@ -790,24 +790,24 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 .proj-txtx {
   position: absolute;
+  inset: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  top: 65%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   transition: 0.5s ease-in-out;
   opacity: 0;
-  width: calc(100% - 32px);
-  padding: 16px 14px;
+  padding: 12px 10px;
+  overflow-y: auto;
+  box-sizing: border-box;
   background: rgba(0, 0, 0, 0.35);
   backdrop-filter: saturate(180%) blur(16px);
   -webkit-backdrop-filter: saturate(180%) blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  margin: 0 16px;
-  box-sizing: border-box;
+  border-radius: 12px;
 }
 .proj-imgbx:hover .proj-txtx {
-  top: 50%;
   opacity: 1;
 }
 /* Touch devices: overlay hidden by default, show only when user taps (proj-card-overlay-open) */
@@ -816,14 +816,12 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     height: 0;
   }
   .proj-imgbx .proj-txtx {
-    top: 65%;
     opacity: 0;
   }
   .proj-imgbx.proj-card-overlay-open::before {
     height: 100%;
   }
   .proj-imgbx.proj-card-overlay-open .proj-txtx {
-    top: 50%;
     opacity: 1;
   }
 }
@@ -831,7 +829,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.8px;
-  line-height: 1.2em;
+  line-height: 1.3em;
+  width: 100%;
+  min-width: 0;
+  align-self: stretch;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  flex-shrink: 0;
 }
 .proj-txtx span {
   font-style: italic;
@@ -843,6 +848,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-top: 6px;
   max-height: 4.5em;
   overflow-y: auto;
+  flex-shrink: 0;
+  width: 100%;
+  min-height: 2.7em;
 }
 .proj-txtx span.proj-txtx-detail {
   font-style: normal;
@@ -1335,9 +1343,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     font-size: 16px;
   }
   .proj-txtx {
-    padding: 14px 12px;
-    width: calc(100% - 24px);
-    margin: 0 12px;
+    padding: 10px 8px;
+    inset: 10px;
   }
   .proj-link-btn {
     padding: 12px 24px;
@@ -1420,6 +1427,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   .project .row .row > *:nth-child(5) .proj-imgbx.animate__animated { animation-delay: 0.25s; }
   .project .row .row > *:nth-child(6) .proj-imgbx.animate__animated { animation-delay: 0.3s; }
   .project .row .row > *:nth-child(7) .proj-imgbx.animate__animated { animation-delay: 0.35s; }
+  .project .row .row > *:nth-child(8) .proj-imgbx.animate__animated { animation-delay: 0.4s; }
 }
 
 @media (max-width: 480px) {
